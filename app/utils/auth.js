@@ -1,24 +1,68 @@
-import api from "./api";
-import Cookies from "js-cookie";
+// import api from "./api"; // ✅ Correct import
+// import Cookies from "js-cookie";
 
-// ✅ Login API
-export const loginUser = async (email, password) => {
-  const { data } = await api.post("/login", { email, password });
+// // ✅ Signup API Call
+// export const signupUser = async (userData) => {
+//   try {
+//     const response = await api.post("/signup", userData);
+//     return response.data;
+//   } catch (error) {
+//     console.error("Signup Error:", error.response?.data || error.message);
+//     throw error;
+//   }
+// };
 
-  if (data.token) {
-    Cookies.set("token", data.token, { expires: 1 }); // Store token in cookies
-  }
+// // ✅ Login API Call
+// export const loginUser = async (email, password) => {
+//   try {
+//     const response = await api.post("/login", { email, password });
 
-  return data;
-};
+//     if (response.data.token) {
+//       Cookies.set("token", response.data.token, { expires: 1 }); // Store JWT token
+//     }
 
-// ✅ Logout
-export const logoutUser = () => {
-  Cookies.remove("token");
-};
+//     return response.data;
+//   } catch (error) {
+//     console.error("Login Error:", error.response?.data || error.message);
+//     throw error;
+//   }
+// };
 
-// ✅ Get Current User (Protected Route)
-export const getCurrentUser = async () => {
-  const { data } = await api.get("/user");
-  return data;
-};
+// // ✅ Logout Function
+// export const logoutUser = () => {
+//   Cookies.remove("token"); // Remove JWT token
+// };
+// // import api from "./api";
+// // import Cookies from "js-cookie";
+
+// // // ✅ Signup API Call
+// // export const signupUser = async (userData) => {
+// //   try {
+// //     const response = await api.post("/signup", userData);
+// //     return response.data;
+// //   } catch (error) {
+// //     console.error("Signup Error:", error.response?.data || error.message);
+// //     throw error;
+// //   }
+// // };
+
+// // // ✅ Login API Call
+// // export const loginUser = async (email, password) => {
+// //   try {
+// //     const response = await api.post("/login", { email, password });
+
+// //     if (response.data.token) {
+// //       Cookies.set("token", response.data.token, { expires: 1 }); // Store JWT token
+// //     }
+
+// //     return response.data;
+// //   } catch (error) {
+// //     console.error("Login Error:", error.response?.data || error.message);
+// //     throw error;
+// //   }
+// // };
+
+// // // ✅ Logout Function
+// // export const logoutUser = () => {
+// //   Cookies.remove("token"); // Remove JWT token
+// // };
